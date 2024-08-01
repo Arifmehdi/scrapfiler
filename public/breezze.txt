@@ -1,0 +1,12 @@
+01.install laravel breeze
+    composer require laravel/breeze --dev
+
+02. noe install via php
+    php artisan breeze:install
+
+03. choose blade, vue , react etc
+
+04. npm install & run dev
+
+** remove precious node moules
+rm -rf node_modules package-lock.jsonnpm

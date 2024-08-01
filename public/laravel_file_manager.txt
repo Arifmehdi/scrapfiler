@@ -1,0 +1,18 @@
+01.
+composer require alexusmai/laravel-file-manager
+
+02.
+php artisan vendor:publish --tag=fm-config
+
+03.
+config/file-manager.php
+
+....
+'diskList' => ['local'],
+....
+
+04.
+php artisan vendor:publish --tag=fm-assets
+
+05. create route
+Route::get('filemanager', [FileManagerController::class, 'index']);

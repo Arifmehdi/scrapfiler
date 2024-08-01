@@ -1,0 +1,18 @@
+01.
+
+composer require spatie/laravel-medialibrary
+composer require "spatie/laravel-medialibrary"
+
+02.
+
+php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="medialibrary-migrations"
+
+03.
+php artisan migrate
+
+
+04.
+php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="medialibrary-config"
+
+05.
+
