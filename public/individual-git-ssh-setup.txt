@@ -1,0 +1,44 @@
+Using SSH for Multiple Accounts
+If you need to use multiple GitHub accounts, it's often easier to manage them using SSH. Here's how you can set it up:
+
+01 . Generate SSH Keys for Both Accounts:
+ssh-keygen -t rsa -b 4096 -C "email@example.com" -f ~/.ssh/id_rsa_localcarz
+ssh-keygen -t rsa -b 4096 -C "another-email@example.com" -f ~/.ssh/id_rsa_carbazar
+
+    Add the SSH Keys to Your SSH Agent:
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa_localcarz
+    ssh-add ~/.ssh/id_rsa_carbazar
+
+    Add the localcarz SSH key to your GitHub account:
+    Go to GitHub > Settings > SSH and GPG keys.
+    Add the public keys (~/.ssh/id_rsa_localcarz.pub and ~/.ssh/id_rsa_carbazar.pub) to the respective GitHub accounts.
+    make new SSH key and paste here mentioned copied ssh & follow 04 step
+
+    Copy the SSH key for localcarz to your clipboard:
+    cat ~/.ssh/id_rsa_localcarz.pub
+
+    and copy full text (ssh to .com ) & follow 03 step
+
+    Edit the SSH config file:
+    nano ~/.ssh/config
+
+    N:B use ctrl+x to exit and ctrl+c to exit
+
+    Add the following configuration
+    Host github-localcarz
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_localcarz:
+
+    Save and exit the editor:
+
+    In nano, press CTRL + X, then Y, then ENTER.
+
+    Update your Git remote URLs to use SSH:
+    git remote set-url origin git@github-localcarz:Arifmehdi/scrapfiler.git
+
+    Try pushing the changes again:
+    git push -u origin main
+
+And enjoy your journey . Thanks for keep with me
